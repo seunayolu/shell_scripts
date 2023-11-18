@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # Variable Declaration
-#PACKAGE="httpd wget unzip"
-#SVC="httpd"
+
 URL='https://www.tooplate.com/zip-templates/2133_moso_interior.zip'
 ART_NAME='2133_moso_interior'
 TEMPDIR="/tmp/webfiles"
@@ -58,8 +57,9 @@ then
    rm -rf $TEMPDIR
    echo
 
-   sudo systemctl status $SVC
    ls /var/www/html/
+   sudo systemctl status $SVC
+   
 
 else
     # Set Variables for Ubuntu
@@ -73,14 +73,6 @@ else
    echo "########################################"
    sudo apt update
    sudo apt install $PACKAGE -y > /dev/null
-   echo
-
-   # Start & Enable Service
-   echo "########################################"
-   echo "Start & Enable Apache2 Service"
-   echo "########################################"
-   sudo systemctl start $SVC
-   sudo systemctl enable $SVC
    echo
 
    # Creating Temp Directory
@@ -110,6 +102,7 @@ else
    rm -rf $TEMPDIR
    echo
 
-   sudo systemctl status $SVC
    ls /var/www/html/
+   sudo systemctl status $SVC
+   
 fi 
