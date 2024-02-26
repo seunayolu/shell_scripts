@@ -1,6 +1,6 @@
 upstream backend {
-    server 172.31.32.28;
-    server 172.31.37.31;
+    server 172.31.26.127;
+    server 172.31.16.183;
     # Add more backend servers as needed
 }
 

@@ -2,7 +2,7 @@
 
 USR='devops'
 
-for host in `cat remhosts`
+for host in `cat remhost`
 do
    echo
    echo "#########################################################"

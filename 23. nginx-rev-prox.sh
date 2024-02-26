@@ -1,15 +1,15 @@
 server {
     listen      80;  # Change the port to 8080
-    server_name rev-prox.np.dev.darey.io www.rev-prox.np.dev.darey.io;
+    server_name rev-prox.np.io www.rev-prox.np.io;
     index       index.html;
-    root        /var/www/apache2.np.dev.darey.io;  # fallback for index.php
+    root        /var/www/apache.np.io;  # fallback for index.php
     
     location / {
         try_files $uri $uri/ /index.html?$query_string;
     }
 
     location /blog {
-        proxy_pass http://apache2.np.dev.darey.io:8080;
+        proxy_pass http://apache.np.dev.darey.io:8080;
         proxy_http_version                 1.1;
         proxy_cache_bypass                 $http_upgrade;
 
