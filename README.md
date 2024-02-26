@@ -1,4 +1,4 @@
-# Capstone Project: Multi-Distribution Apache Web Server Deployment with Remote Execution
+# Multi-Distribution Apache Web Server Deployment with Remote Execution
 
 ## Project Scenario
 
