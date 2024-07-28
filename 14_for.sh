@@ -1,15 +1,17 @@
 #!/bin/bash
 
-MYUSERS="alpha beta gamma"
+USERS="seun dammy bisi tope"
 
-PASS="devops"
+for admin in $USERS
 
-for usr in $MYUSERS
-do 
-   echo "Adding user $usr."
-   useradd $usr
-   passwd $PASS
-   id $usr
-   echo "#####################################"
+do
+  echo "Adding User....."
+  sleep 2
+  echo "###################################################"
+  useradd $admin
+  id $admin
+  echo "###################################################"
+  date
+  echo
 done
 

@@ -8,6 +8,8 @@ do
     # Create a user with a home directory and set the password
     sudo useradd -m -s /bin/bash -p $(openssl passwd -1 $password) $username
 
+    sleep 2
+
     # Display user information
     echo "User $username created with password: $password"
 done
