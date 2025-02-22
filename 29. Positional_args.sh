@@ -3,7 +3,7 @@
 # 1. Parse/validate arguments
 if [ $# -lt 2 ]; then
   echo "Usage: $0 <DOWNLOAD_URL> <ZIP_FILENAME>"
-  echo "Example: $0 \"https://www.tooplate.com/zip-templates/2133_moso_interior.zip\" \"2133_moso_interior.zip\""
+  echo "Example: $0 \"https://www.tooplate.com/zip-templates/2130_waso_strategy.zip\" \"2133_moso_interior.zip\""
   exit 1
 fi
 
@@ -23,7 +23,7 @@ echo "########################################"
 echo "Starting Artifact Deployment"
 echo "########################################"
 mkdir -p /tmp/webfiles
-cd /tmp/webfiles || exit
+cd /tmp/webfiles || exit 
 echo
 
 # 4. Download and unzip artifacts using variables

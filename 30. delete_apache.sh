@@ -9,6 +9,8 @@ echo "  2. Delete ALL files in /var/www/html/"
 echo "########################################"
 echo
 
+sudo u
+
 # Prompt user for confirmation
 read -p "Type 'YES' to confirm removal: " CONFIRM
 

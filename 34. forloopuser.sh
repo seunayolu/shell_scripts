@@ -10,9 +10,9 @@ NUM_USERS="${1:-10}"
 USER_PREFIX="${2:-user}"
 
 # Loop through the range 1..NUM_USERS
-for i in $(seq 1 "$NUM_USERS"); do
-    username="${USER_PREFIX}${i}"
-    password="P@ssw0rd${i}"
+for b in $(seq 1 "$NUM_USERS"); do
+    username="${USER_PREFIX}${b}"
+    password="P@ssw0rd${b}"
 
     # Check if the user already exists
     if id "$username" &>/dev/null; then
