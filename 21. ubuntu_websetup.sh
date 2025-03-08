@@ -25,13 +25,14 @@ echo
 echo "########################################"
 echo "Restarting Apache Webserver service"
 echo "########################################"
-systemctl restart apache2
+sudo systemctl restart apache2
 echo
 
 # Clean Up
 echo "########################################"
 echo "Removing Temporary Files"
 echo "########################################"
+cd
 rm -rf /tmp/webfiles
 echo
 
