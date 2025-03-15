@@ -8,7 +8,7 @@ do
   echo "Adding User....."
   sleep 2
   echo "###################################################"
-  useradd $admin
+  sudo useradd $admin
   id $admin
   echo "###################################################"
   date
