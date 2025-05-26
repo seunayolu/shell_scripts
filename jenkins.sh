@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Install openjdk 17
+# Install openjdk 21
 sudo apt update -y
-sudo apt install fontconfig openjdk-17-jre -y
+sudo apt install fontconfig openjdk-21-jre -y
 
 sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
   https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
@@ -34,3 +34,12 @@ sudo usermod -aG docker jenkins
 sudo usermod -aG docker ubuntu
 sudo systemctl restart docker
 sudo systemctl restart jenkins
+
+# Install AWS CLI
+
+# Update package lists
+apt-get update -y
+sudo apt install unzip -y
+sudo curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+sudo unzip awscliv2.zip
+sudo ./aws/install

@@ -1,0 +1,38 @@
+# AWS Image Builder Component File
+
+name: JavaAndDockerSetupForEC2ImageBuilder-Ubuntu24.04
+description: Installs Java 21 and Docker on Ubuntu 24.04 for EC2 Image Builder.
+schemaVersion: 1.0
+
+phases:
+  - name: build
+    steps:
+      - name: UpdateApt
+        action: ExecuteBash
+        inputs:
+          commands:
+            - sudo apt clean
+            - sudo apt update -y || exit 1
+            - sudo apt upgrade -y || exit 1
+      - name: InstallJava21
+        action: ExecuteBash
+        inputs:
+          commands:
+            - sudo apt install -y fontconfig openjdk-21-jre || exit 1
+            - java -version || exit 1
+      - name: InstallDocker
+        action: ExecuteBash
+        inputs:
+          commands:
+            - which sudo || exit 1
+            - echo $PATH
+            - sudo apt install -y ca-certificates curl
+            - sudo install -m 0755 -d /etc/apt/keyrings
+            - sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc || exit 1
+            - sudo chmod a+r /etc/apt/keyrings/docker.asc
+            - sudo bash -c 'echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(source /etc/os-release && echo $VERSION_CODENAME) stable" > /etc/apt/sources.list.d/docker.list' || exit 1
+            - sudo cat /etc/apt/sources.list.d/docker.list || exit 1
+            - sudo apt update -y || exit 1
+            - sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin || exit 1
+            - sudo usermod -aG docker ubuntu || exit 1
+            - docker --version || exit 1

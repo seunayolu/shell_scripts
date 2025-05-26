@@ -1,14 +1,23 @@
 #!/bin/bash
 
-# Install openjdk 17
+# Install openjdk 21
 sudo apt update -y
-sudo apt install fontconfig openjdk-17-jre -y
+sudo apt install fontconfig openjdk-21-jre -y
 
 # Create folder in opt
 sudo mkdir -p /opt/jenkins
 
 # change permission
 sudo chown -R ubuntu:ubuntu /opt/jenkins
+
+# Install AWS CLI
+
+# Update package lists
+apt-get update -y
+sudo apt install unzip -y
+sudo curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+sudo unzip awscliv2.zip
+sudo ./aws/install
 
 # Add Docker's official GPG key:
 sudo apt update -y
@@ -26,7 +35,17 @@ sudo apt update -y
 
 sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 sudo usermod -aG docker ubuntu
+sudo usermod -aG docker jenkins
 sudo systemctl restart docker
+
+# Install AWS CLI
+
+# Update package lists
+apt-get update -y
+sudo apt install unzip -y
+sudo curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+sudo unzip awscliv2.zip
+sudo ./aws/install
 
 # Install Terraform
 sudo apt-get update -y && sudo apt-get install -y gnupg software-properties-common
@@ -48,15 +67,6 @@ sudo tee /etc/apt/sources.list.d/hashicorp.list
 # Download the package information from HashiCorp.
 sudo apt update
 sudo apt-get install terraform -y
-
-# Install AWS CLI
-
-# Update package lists
-apt-get update -y
-sudo apt install unzip -y
-sudo curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-unzip awscliv2.zip
-sudo ./aws/install
 
 # Helm Install
 curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
