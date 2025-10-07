@@ -18,7 +18,7 @@ EOT
 
 # Update and install necessary packages
 sudo apt-get update -y
-sudo apt-get install -y openjdk-17-jdk wget unzip nginx net-tools
+sudo apt-get install -y openjdk-21-jdk wget unzip nginx net-tools
 
 # Configure Java alternatives and check version
 java -version

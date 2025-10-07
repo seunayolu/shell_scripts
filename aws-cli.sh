@@ -14,4 +14,8 @@ sudo ./aws/install
 
 curl -s https://api.github.com/meta | jq -r '.hooks[]'
 
-aws ssm start-session --target i-04d4083047032ec6a --document-name AWS-StartInteractiveCommand --parameters command="bash"
+aws ssm start-session --target i-00b65c82b22363a1c --document-name AWS-StartInteractiveCommand --parameters command="bash"
+
+kubectl delete crd applications.argoproj.io
+kubectl delete crd applicationsets.argoproj.io
+kubectl delete crd appprojects.argoproj.io
